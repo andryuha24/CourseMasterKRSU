@@ -1,0 +1,38 @@
+﻿{
+module Lexer
+open System
+open System.Text
+open Parser
+open Microsoft.FSharp.Text.Lexing
+
+let lexeme lexbuf =
+    LexBuffer<char>.LexemeString lexbuf
+}
+
+
+let digit = ['0'-'9']
+let alpha = ['a'-'z' 'A'-'Z']
+let identifier = alpha+ (alpha | ['_' '-' '$' '*' '!' '?'])*
+let operator = ['+' '-' '*' '/' '=' '>' '<']
+let whitespace = [' ' '\t' ]
+let newline = '\n' | '\r' '\n'
+
+rule tokens = parse
+    | whitespace	{ tokens lexbuf }
+    | newline       { tokens lexbuf }
+    | '('           { LPAREN }
+    | ')'           { RPAREN }
+    | ['-']?digit+  { Int (Int32.Parse (lexeme lexbuf)) }
+    | "#t"          { Bool (true) }
+    | "#f"          { Bool (false) }
+    | identifier    { Sym (lexeme lexbuf) }
+    | operator      { Sym (lexeme lexbuf) }
+    | eof   { EOF }
+    | _ { lexeme lexbuf |> sprintf "Parsing error: %s" |> failwith }
+
+
+{
+let parse str =
+    let lexbuf = LexBuffer<_>.FromString str
+    Parser.start tokens lexbuf
+}

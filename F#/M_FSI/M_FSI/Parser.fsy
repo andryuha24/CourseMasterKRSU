@@ -1,0 +1,27 @@
+﻿%{
+
+open AST
+
+%}
+
+%start start
+
+%token <int> Int
+%token <string> Str
+%token <string> Sym
+%token <bool> Bool
+%token EOF LPAREN RPAREN QUOTE
+
+%type <expr> start
+
+%%
+
+start: expr     { $1 }
+
+expr: Int       { Value(Number($1)) }
+    | Sym       { Symbol($1) }
+    | Bool      { Value(Boolean($1)) }
+    | LPAREN list RPAREN { List($2) }
+
+list: expr list { $1 :: $2 }
+    |           { [] }
