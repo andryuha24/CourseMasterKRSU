@@ -1,0 +1,14 @@
+What is it? 
+A new line of graphics tablets that let users sketch on paper and capture the result directly as an SVG or PSD file without needing to scan the drawing.
+
+Tech specs
+There are two models: the 13-inch Medium and the 17-inch Large tablet. Both ship with Wacom’s new Pro Pen 2 stylus, which supports 8,192 levels of pressure sensitivity.
+
+Users can also clip drawing paper (A5 in the case of the Medium, A4 in the case of the Large) over the screen and draw on it with Wacom’s pressure-sensitive FineTip gel ink pen.
+
+The pen itself also supports 8,192 levels of pressure sensitivity, and drawings are captured digitally via Wacom’s Inkspace app, with the tablet storing “up to 200 multi-layered or 1,000 one-layered drawings”.
+
+Key competitors
+There are a number of smart pen systems on the market, including Wacom’s own Bamboo Spark, but they’re smaller, less accurate, and geared more towards note-taking than drawing.
+
+As far as we’re aware, the Intuos Pro Paper Edition is the first professional-quality graphics tablet to enable artists to draw on paper and capture the results with the same fidelity as the tablet itself.
